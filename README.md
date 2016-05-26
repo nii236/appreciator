@@ -7,4 +7,5 @@ Available Commands:
   clear       Removes all entries
   gen         Generates emails of appreciation and prints to STDOUT
   send        Generates then sends email using SMTP defined in the config
+  web         Begin a web server to allow input from an internet browser
 ```
