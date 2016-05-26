@@ -2,8 +2,10 @@ package cmd
 
 import (
 	"fmt"
-
+	"github.com/nii236/appreciator/models"
 	"github.com/spf13/cobra"
+	"os"
+	"text/template"
 )
 
 // genCmd represents the gen command
@@ -17,22 +19,48 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// TODO: Work your own magic here
 		fmt.Println("gen called")
+		names, err := cmd.Flags().GetStringSlice("names")
+		from, err := cmd.Flags().GetString("from")
+		fmt.Println("Names:", names)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		mValues := models.Message{
+			NamesList:      names,
+			Attended:       true,
+			Gift:           "Cash",
+			AdditionalNote: "Enjoy your wedding next year!",
+			From:           from,
+		}
+
+		mValues.Process()
+
+		t := template.Must(template.New("letter").Parse(messageTemplate))
+		t.Execute(os.Stdout, mValues)
+
 	},
 }
 
 func init() {
 	RootCmd.AddCommand(genCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// genCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// genCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-
+	genCmd.Flags().StringSliceP("names", "n", []string{}, "Enter a list of names here")
+	genCmd.Flags().StringP("from", "f", "", "Enter your name")
 }
+
+const messageTemplate = `
+Dear {{.Name}},
+{{if .Attended}}
+It was a pleasure to see you at the wedding.
+{{- else}}
+It is a shame you couldn't make it to the wedding.
+{{- end}}
+{{with .Gift -}}
+Thank you for the lovely {{.}}.
+{{end}}
+{{.AdditionalNote}}
+
+Best wishes,
+{{.From}}
+`

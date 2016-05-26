@@ -5,6 +5,7 @@ This app is a small CLI app (and possibly web) that will let you input data abou
 Available Commands:
   add         Adds an entry
   clear       Removes all entries
+  list        List all entries
   gen         Generates emails of appreciation and prints to STDOUT
   send        Generates then sends email using SMTP defined in the config
   web         Begin a web server to allow input from an internet browser
