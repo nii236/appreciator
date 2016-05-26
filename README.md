@@ -10,3 +10,19 @@ Available Commands:
   send        Generates then sends email using SMTP defined in the config
   web         Begin a web server to allow input from an internet browser
 ```
+
+# Spinup Instructions
+
+- Get the repo
+
+```
+go get github.com/nii236/appreciator
+```
+
+- Install Go
+
+```
+brew install glide
+glide up
+go build
+```
