@@ -11,13 +11,12 @@ import (
 // genCmd represents the gen command
 var genCmd = &cobra.Command{
 	Use:   "gen",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "generates the letter template",
+	Long: `Gen creates a letter to a reciepient and accepts flags including the
+names and gifts received, and whether or not they attended the event you hosted.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+The event is currently hardcoded to a wedding, but will later be changed to
+accept an input, so users can enter their own, such as a birthday or party.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("gen called")
 		names, err := cmd.Flags().GetStringSlice("names")
