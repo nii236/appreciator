@@ -13,16 +13,23 @@ Available Commands:
 
 # Spinup Instructions
 
+- Install Go & Glide
+
+```
+brew install go
+brew install glide
+```
+
 - Get the repo
 
 ```
 go get github.com/nii236/appreciator
 ```
 
-- Install Go
+- Setup Repo - navigate to directory and run:
 
 ```
-brew install glide
+cd $GOPATH/src/github.com/nii236/appreciator
 glide up
 go build
 ```
