@@ -11,8 +11,8 @@ import (
 // genCmd represents the gen command
 var genCmd = &cobra.Command{
 	Use:   "gen",
-	Short: "generates the letter template",
-	Long: `Gen creates a letter to a reciepient and accepts flags including the
+	Short: "Generates the letter template",
+	Long: `Gen creates a letter to a recipient and accepts flags including the
 names and gifts received, and whether or not they attended the event you hosted.
 
 The event is currently hardcoded to a wedding, but will later be changed to
