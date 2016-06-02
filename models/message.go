@@ -15,6 +15,7 @@ type Message struct {
 func (m Message) Save() {
 }
 
+// Process will process the Message and make it more suitable for a letter.
 func (m *Message) Process() error {
 	m.NamesList = titleize(m.NamesList)
 	m.Name = toSentence(m.NamesList)
@@ -36,7 +37,6 @@ func toSentence(namesList []string) string {
 }
 
 func titleize(namesList []string) []string {
-
 	for i, name := range namesList {
 		name = strings.Title(name)
 		namesList[i] = name
