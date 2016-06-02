@@ -1,14 +1,6 @@
 package cmd
 
-import (
-	"fmt"
-	"log"
-	"os"
-	"text/template"
-
-	"github.com/nii236/appreciator/models"
-	"github.com/spf13/cobra"
-)
+import "github.com/spf13/cobra"
 
 // genCmd represents the gen command
 var genCmd = &cobra.Command{
@@ -20,29 +12,9 @@ names and gifts received, and whether or not they attended the event you hosted.
 The event is currently hardcoded to a wedding, but will later be changed to
 accept an input, so users can enter their own, such as a birthday or party.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		if len(args) == 0 {
-			log.Fatal("Please enter names")
-		}
-		fmt.Println("gen called")
-		names, err := cmd.Flags().GetStringSlice("names")
-		from, err := cmd.Flags().GetString("from")
-		fmt.Println("Names:", names)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		mValues := models.Message{
-			NamesList:      names,
-			Attended:       true,
-			Gift:           "Cash",
-			AdditionalNote: "Enjoy your wedding next year!",
-			From:           from,
-		}
 
-		mValues.Process()
-
-		t := template.Must(template.New("letter").Parse(messageTemplate))
-		t.Execute(os.Stdout, mValues)
+		// t := template.Must(template.New("letter").Parse(messageTemplate))
+		// t.Execute(os.Stdout, mValues)
 
 	},
 }
