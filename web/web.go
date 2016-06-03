@@ -19,7 +19,9 @@ func Run() {
 	r.Handler("GET", "/", c.Action(c.Index))
 	r.Handler("POST", "/", c.Action(c.Create))
 
-	n := negroni.Classic()
+	n := negroni.New()
+	n.Use(negroni.NewLogger())
+	n.Use(negroni.NewRecovery())
 	n.UseHandler(r)
 
 	err := http.ListenAndServe(":3001", n)
