@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/eknkc/amber"
+	"github.com/julienschmidt/httprouter"
 )
 
 // HomeController is the top level controller
@@ -14,8 +15,8 @@ type HomeController struct {
 }
 
 // Index contains the index action for the home controller
-func (c *HomeController) Index(w http.ResponseWriter, r *http.Request) error {
-	err := c.Render.ParseFile("./templates/basic.amber")
+func (c *HomeController) Index(w http.ResponseWriter, r *http.Request, params httprouter.Params) error {
+	err := c.Render.ParseFile("./views/basic.amber")
 	if err != nil {
 		return err
 	}
@@ -30,7 +31,7 @@ func (c *HomeController) Index(w http.ResponseWriter, r *http.Request) error {
 }
 
 // Create contains the create action for the home controller
-func (c *HomeController) Create(w http.ResponseWriter, r *http.Request) error {
+func (c *HomeController) Create(w http.ResponseWriter, r *http.Request, params httprouter.Params) error {
 	r.ParseForm()
 	log.Println(r.Form)
 	http.Redirect(w, r, "/", http.StatusFound)

@@ -16,8 +16,8 @@ func Run() {
 
 	r := httprouter.New()
 	r.ServeFiles("/public/*filepath", http.Dir("public/"))
-	r.Handler("GET", "/", c.Action(c.Index))
-	r.Handler("POST", "/", c.Action(c.Create))
+	r.GET("/", c.Action(c.Index))
+	r.POST("/", c.Action(c.Create))
 
 	n := negroni.New()
 	n.Use(negroni.NewLogger())
