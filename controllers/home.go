@@ -1,19 +1,37 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
 
-	"github.com/unrolled/render"
+	"github.com/eknkc/amber"
 )
 
 // HomeController is the top level controller
 type HomeController struct {
 	BaseController
-	*render.Render
+	Render *amber.Compiler
 }
 
 // Index contains the index action for the home controller
 func (c *HomeController) Index(w http.ResponseWriter, r *http.Request) error {
-	c.HTML(w, http.StatusOK, "example", "world")
+	err := c.Render.ParseFile("./templates/basic.amber")
+	if err != nil {
+		return err
+	}
+	tpl, err := c.Render.Compile()
+	if err != nil {
+		return err
+	}
+	if err := tpl.Execute(w, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+// Create contains the create action for the home controller
+func (c *HomeController) Create(w http.ResponseWriter, r *http.Request) error {
+	r.ParseForm()
+	log.Println(r.Form)
 	return nil
 }

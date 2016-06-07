@@ -1,8 +1,10 @@
-hash: 705c7163e43d451702414047c43bbf994fbc032e67ba57cad508fc5448c983e5
-updated: 2016-06-02T22:58:11.666832354+08:00
+hash: 8864cfe79be4ce62843d97766579e4d3c01d32eb8c806dd0c874d6754f8f6b1f
+updated: 2016-06-03T14:56:05.101496419+08:00
 imports:
 - name: github.com/BurntSushi/toml
   version: f0aeabca5a127c4078abb8c8d64298b147264b55
+- name: github.com/codegangsta/negroni
+  version: feacfc52d357c844f524c794947493483ed881b3
 - name: github.com/cupcake/rdb
   version: 90399abcaaff31d7844fbae7f9acb27109946f7f
   subpackages:
@@ -10,14 +12,14 @@ imports:
   - crc64
 - name: github.com/edsrzf/mmap-go
   version: 935e0e8a636ca4ba70b713f3e38a19e1b77739e8
+- name: github.com/eknkc/amber
+  version: 91774f050c1453128146169b626489e60108ec03
+  subpackages:
+  - parser
 - name: github.com/fsnotify/fsnotify
   version: 30411dbcefb7a1da7e84f75530ad3abe4011b4f8
 - name: github.com/golang/snappy
   version: d9eb7a3d35ec988b8585d4a0068e462c27d28380
-- name: github.com/gorilla/context
-  version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
-- name: github.com/gorilla/mux
-  version: bd09be08ed4377796d312df0a45314e11b8f5dc1
 - name: github.com/hashicorp/hcl
   version: 9a905a34e6280ce905da1a32344b25e81011197a
   subpackages:
@@ -31,6 +33,8 @@ imports:
   - json/token
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/julienschmidt/httprouter
+  version: 77366a47451a56bb3ba682481eed85b64fea14e8
 - name: github.com/magiconair/properties
   version: c265cfa48dda6474e208715ca93e987829f572f8
 - name: github.com/mitchellh/mapstructure
@@ -85,6 +89,8 @@ imports:
   - leveldb/table
 - name: github.com/unrolled/render
   version: 198ad4d8b8a4612176b804ca10555b222a086b40
+- name: github.com/urfave/negroni
+  version: feacfc52d357c844f524c794947493483ed881b3
 - name: golang.org/x/sys
   version: 076b546753157f758b316e59bcb51e6807c04057
   subpackages:

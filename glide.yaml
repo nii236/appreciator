@@ -3,5 +3,6 @@ import:
 - package: github.com/spf13/cobra
 - package: github.com/spf13/viper
 - package: github.com/siddontang/ledisdb
-- package: github.com/gorilla/mux
-- package: github.com/unrolled/render
+- package: github.com/urfave/negroni
+- package: github.com/julienschmidt/httprouter
+- package: github.com/eknkc/amber
