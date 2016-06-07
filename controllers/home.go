@@ -33,5 +33,6 @@ func (c *HomeController) Index(w http.ResponseWriter, r *http.Request) error {
 func (c *HomeController) Create(w http.ResponseWriter, r *http.Request) error {
 	r.ParseForm()
 	log.Println(r.Form)
+	http.Redirect(w, r, "/", http.StatusFound)
 	return nil
 }
