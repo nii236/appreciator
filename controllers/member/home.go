@@ -1,4 +1,4 @@
-package controllers
+package member
 
 import (
 	"log"
@@ -6,11 +6,12 @@ import (
 
 	"github.com/eknkc/amber"
 	"github.com/julienschmidt/httprouter"
+	"github.com/nii236/appreciator/controllers"
 )
 
 // HomeController is the top level controller
 type HomeController struct {
-	BaseController
+	controllers.BaseController
 	Render *amber.Compiler
 }
 

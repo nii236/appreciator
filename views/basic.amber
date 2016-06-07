@@ -17,7 +17,11 @@ html
                         li Item a
                         li Item b
 
-                pre func main() {}
+                pre
+                        | func main() {}
+                        | kk
+                        | asd
+
         form[method="post"][action="/"]
                 label.textfield
                         input[type="text"][name="name"]
