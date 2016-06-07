@@ -17,7 +17,7 @@ type HomeController struct {
 
 // Index contains the index action for the home controller
 func (c *HomeController) Index(w http.ResponseWriter, r *http.Request, params httprouter.Params) error {
-	err := c.Render.ParseFile("./views/basic.amber")
+	err := c.Render.ParseFile("./views/member/form.amber")
 	if err != nil {
 		return err
 	}
@@ -35,6 +35,6 @@ func (c *HomeController) Index(w http.ResponseWriter, r *http.Request, params ht
 func (c *HomeController) Create(w http.ResponseWriter, r *http.Request, params httprouter.Params) error {
 	r.ParseForm()
 	log.Println(r.Form)
-	http.Redirect(w, r, "/", http.StatusFound)
+	http.Redirect(w, r, "/member", http.StatusFound)
 	return nil
 }

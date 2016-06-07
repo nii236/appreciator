@@ -3,6 +3,7 @@ package web
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/codegangsta/negroni"
 	"github.com/eknkc/amber"
@@ -29,8 +30,12 @@ func Run() {
 	n.Use(negroni.NewLogger())
 	n.Use(negroni.NewRecovery())
 	n.UseHandler(r)
-
-	err := http.ListenAndServe(":3001", n)
+	PORT := os.Getenv("PORT")
+	if PORT == "" {
+		PORT = ":3000"
+	}
+	log.Println("Starting server on", PORT)
+	err := http.ListenAndServe(PORT, n)
 	if err != nil {
 		log.Fatalln("Error!", err)
 	}
