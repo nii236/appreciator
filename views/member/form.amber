@@ -1,0 +1,37 @@
+!!! 5
+html
+        head
+                title Guest form
+                meta[name="description"][value="This is a sample"]
+                link[rel="stylesheet"][type="text/css"][href="/public/css/cutestrap.min.css"]
+        body
+                h1 Guest Form
+                p Please enter the details of your guest
+
+        form[method="post"][action="/member"]
+                label.textfield
+                        input[type="text"][name="to1"]
+                        span.textfield__label First Guest
+                label.textfield
+                        input[type="text"][name="to2"]
+                        span.textfield__label Second Guest
+                label.textfield
+                        input[type="text"][name="to3"]
+                        span.textfield__label Third Guest
+                label.checkbox
+                        input[type="checkbox"][name="attended"]
+                        span.checkbox__label Did they attend the event?
+                label.textfield
+                        input[type="text"][name="gift"]
+                        span.textfield__label What was their gift?
+                label.textfield
+                        input[type="text"][name="additional"]
+                        span.textfield__label Do you have anything you wish to add?
+                label.textfield
+                        input[type="text"][name="from1"]
+                        span.textfield__label From person 1
+                label.textfield
+                        input[type="text"][name="from2"]
+                        span.textfield__label From person 2
+                br
+                input[type="submit"][value="Submit"]

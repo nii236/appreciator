@@ -19,8 +19,6 @@ html
 
                 pre
                         | func main() {}
-                        | kk
-                        | asd
 
         form[method="post"][action="/"]
                 label.textfield
