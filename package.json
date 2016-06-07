@@ -18,8 +18,39 @@
   "homepage": "https://github.com/nii236/appreciator#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cssmin": "^0.1.7",
     "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylelint": "^2.0.2",
     "gulp-sync": "^0.1.4",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "node-notifier": "^4.6.0"
+  },
+  "stylelint": {
+    "rules": {
+      "block-no-empty": null,
+      "color-no-invalid-hex": true,
+      "declaration-colon-space-after": "always",
+      "indentation": [
+        "tab",
+        {
+          "except": [
+            "value"
+          ]
+        }
+      ],
+      "max-empty-lines": 2,
+      "unit-whitelist": [
+        "em",
+        "rem",
+        "%",
+        "s"
+      ]
+    }
   }
 }
