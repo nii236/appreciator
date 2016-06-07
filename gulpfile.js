@@ -52,6 +52,12 @@ gulp.task('server:build', function() {
 			title: 'Go build error',
 			message: build.stderr
 		});
+		var lines = build.stderr.toString().split('\n');
+		for (var l in lines) {
+			if (lines[l].length) {
+				util.log(util.colors.red(lines[l]));
+			}
+		}
 	}
 	return build
 });

@@ -23,7 +23,6 @@ func Run() {
 	r.ServeFiles("/public/*filepath", http.Dir("public/"))
 
 	r.GET("/admin", adminHome.Action(adminHome.Index))
-	r.POST("/admin", adminHome.Action(adminHome.Create))
 
 	r.GET("/member", memberHome.Action(memberHome.Index))
 	r.POST("/member", memberHome.Action(memberHome.Create))
