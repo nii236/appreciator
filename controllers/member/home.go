@@ -1,9 +1,9 @@
 package member
 
 import (
-	"log"
 	"net/http"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/eknkc/amber"
 	"github.com/julienschmidt/httprouter"
 	"github.com/nii236/appreciator/controllers"
@@ -34,7 +34,7 @@ func (c *HomeController) Index(w http.ResponseWriter, r *http.Request, params ht
 // Create contains the create action for the home controller
 func (c *HomeController) Create(w http.ResponseWriter, r *http.Request, params httprouter.Params) error {
 	r.ParseForm()
-	log.Println(r.Form)
+	log.Infoln(r.Form)
 	http.Redirect(w, r, "/member", http.StatusFound)
 	return nil
 }

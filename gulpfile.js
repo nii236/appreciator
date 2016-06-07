@@ -66,13 +66,19 @@ gulp.task('server:spawn', function() {
 	})
 	server.stdout.on('data', function(data) {
 		var lines = data.toString().split('\n');
-		for (var l in lines)
-			if (lines[l].length) {
-				util.log(lines[l]);
-			}
+		for (var l in lines) {
+                        if (lines[l].length) {
+                                util.log(lines[l]);
+                        }
+                }
 	});
 	server.stderr.on('data', function(data) {
-		process.stdout.write(data.toString());
+                var lines = data.toString().split('\n');
+		for (var l in lines) {
+                        if (lines[l].length) {
+                                util.log(util.colors.red(lines[l]));
+                        }
+                }
 	});
 	server.on('error', function(data) {
 		process.stdout.write(data.toString())
@@ -131,6 +137,7 @@ gulp.task('assets:watch', function() {
 
 // GULP INTERFACE
 gulp.task('build', [
+	'assets:build'
 	'server:build'
 ]);
 
