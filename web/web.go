@@ -1,9 +1,11 @@
 package web
 
 import (
-	"log"
 	"net/http"
 	"os"
+	"time"
+
+	log "github.com/Sirupsen/logrus"
 
 	"github.com/codegangsta/negroni"
 	"github.com/eknkc/amber"
@@ -27,16 +29,23 @@ func Run() {
 	r.POST("/member", memberHome.Action(memberHome.Create))
 
 	n := negroni.New()
-	n.Use(negroni.NewLogger())
+	n.Use(negroni.HandlerFunc(loggerMiddleware))
 	n.Use(negroni.NewRecovery())
 	n.UseHandler(r)
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = ":3000"
 	}
-	log.Println("Starting server on", PORT)
+	log.Infoln("Starting server on", PORT)
 	err := http.ListenAndServe(PORT, n)
 	if err != nil {
 		log.Fatalln("Error!", err)
 	}
+}
+
+func loggerMiddleware(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	then := time.Now()
+	log.Infoln("Started", r.Method, r.URL)
+	next(rw, r)
+	log.Infoln("Finished", r.Method, r.URL, "in", time.Since(then))
 }

@@ -61,9 +61,6 @@ gulp.task('server:build', function() {
 gulp.task('server:spawn', function() {
 	if (server) server.kill();
 	server = child.spawn('./appreciator', ['web']);
-	server.stdout.once('data', function() {
-		reload.reload('/');
-	})
 	server.stdout.on('data', function(data) {
 		var lines = data.toString().split('\n');
 		for (var l in lines) {
@@ -137,7 +134,7 @@ gulp.task('assets:watch', function() {
 
 // GULP INTERFACE
 gulp.task('build', [
-	'assets:build'
+	'assets:build',
 	'server:build'
 ]);
 

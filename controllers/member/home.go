@@ -34,7 +34,14 @@ func (c *HomeController) Index(w http.ResponseWriter, r *http.Request, params ht
 // Create contains the create action for the home controller
 func (c *HomeController) Create(w http.ResponseWriter, r *http.Request, params httprouter.Params) error {
 	r.ParseForm()
-	log.Infoln(r.Form)
+	log.Debugln("to1:", r.FormValue("to1"))
+	log.Debugln("to2:", r.FormValue("to2"))
+	log.Debugln("to3:", r.FormValue("to3"))
+	log.Debugln("attended:", r.FormValue("attended"))
+	log.Debugln("gift:", r.FormValue("gift"))
+	log.Debugln("additional:", r.FormValue("additional"))
+	log.Debugln("from1:", r.FormValue("from1"))
+	log.Debugln("from2:", r.FormValue("from2"))
 	http.Redirect(w, r, "/member", http.StatusFound)
 	return nil
 }
