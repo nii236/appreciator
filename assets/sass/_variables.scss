@@ -1,5 +1,8 @@
 //  variables/
 
-@import "variables/colors";
-@import "variables/type";
-@import "variables/z_index";
+@import "../../node_modules/cutestrap/dist/scss/variables/colors";
+@import "../../node_modules/cutestrap/dist/scss/variables/type";
+@import "../../node_modules/cutestrap/dist/scss/variables/z_index";
+
+$primary: #3F51B5;
+$primary-dark: #303F9F;

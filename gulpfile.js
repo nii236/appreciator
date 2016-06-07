@@ -121,7 +121,7 @@ gulp.task('assets:stylesheets', function() {
 		.pipe(sourcemaps.init())
 			.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
-		.pipe(autoprefixer())
+		// .pipe(autoprefixer())
 		.pipe(gulp.dest('./public/css'))
 		.pipe(cssmin())
 		.pipe(rename({suffix: '.min'}))
