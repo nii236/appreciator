@@ -1,0 +1,7 @@
+!!! 5
+html
+		head
+				title Thankyou for submitting your RSVP
+				link[rel="stylesheet"][type="text/css"][href="/public/css/cutestrap.min.css"]
+		body.wrapper-small
+				h1 Thank you for your RSVP!

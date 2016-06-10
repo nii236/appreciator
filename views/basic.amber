@@ -17,8 +17,10 @@ html
                         li Item a
                         li Item b
 
-                pre func main() {}
-        form
+                pre
+                        | func main() {}
+
+        form[method="post"][action="/"]
                 label.textfield
                         input[type="text"][name="name"]
                         span.textfield__label Your Name

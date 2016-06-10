@@ -3,3 +3,5 @@ appreciator
 vendor/
 temp
 gin-bin
+public/css
+assets/scss

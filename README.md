@@ -30,6 +30,8 @@ go get github.com/nii236/appreciator
 
 ```
 cd $GOPATH/src/github.com/nii236/appreciator
-glide up
-go build
+glide install
+npm install
+gulp watch
+open localhost:3000
 ```

@@ -1,0 +1,27 @@
+!!! 5
+html
+		head
+				title Guest form
+				meta[name="description"][value="This is a sample"]
+				link[rel="stylesheet"][type="text/css"][href="/public/css/cutestrap.min.css"]
+		body.wrapper-small
+				h1 Guest Form
+				p Please RSVP for the event!
+				
+				form[method="post"][action="/rsvp/complete"]
+						h3 Wedding
+						label.radio
+								input[type="radio"][name="wedding"][required]
+								span.radio__label I can attend
+						label.radio
+								input[type="radio"][name="wedding"]
+								span.radio__label I can not attend
+						h3 Dinner
+						label.radio
+								input[type="radio"][name="dinner"][required]
+								span.radio__label I can attend
+						label.radio
+								input[type="radio"][name="dinner"]
+								span.radio__label I can not attend
+						br
+						input[type="submit"][value="Submit"]
