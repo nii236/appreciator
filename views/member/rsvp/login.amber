@@ -1,0 +1,14 @@
+!!! 5
+html
+        head
+                title Guest form
+                meta[name="description"][value="This is a sample"]
+                link[rel="stylesheet"][type="text/css"][href="/public/css/cutestrap.min.css"]
+        body.wrapper-small
+                h1 RSVP Form
+                p Please enter the code on your invitation
+                form[method="post"][action="/rsvp"]
+                        label.textfield
+                                input[type="text"][name="user"][required]
+                                span.textfield__label Guestcode
+                        input[type="submit"][value="Submit"]
