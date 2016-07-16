@@ -1,6 +1,7 @@
 # Gift Appreciator
 
 This app is a small CLI app (and possibly web) that will let you input data about gifts, givers and personalised messages. It will then generate emails from a template then send the emails to the relevant people.
+
 ```
 Available Commands:
   add         Adds an entry
